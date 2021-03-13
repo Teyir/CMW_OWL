@@ -50,6 +50,7 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
 </head>
 
 <body>
+<!-- PRELOADER
 	<div class="loader-wrapper">
 		<div class="loaders">
 			<div class="loader-logo-pulse">
@@ -59,6 +60,7 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
 			</div>
 		</div>
 	</div>
+	-->
 	<?php if(isset($_Joueur_)) { ?>
 		<?php setcookie('pseudo', $_Joueur_['pseudo'], time() + 86400, null, null, false, true); ?>	
 		<?php } else { ?>
