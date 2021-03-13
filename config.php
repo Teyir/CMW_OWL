@@ -11,9 +11,9 @@
 	//------------------------------------------------------------------------------ NAV BAR --------------------------------------------------------------------------------//
 
 
-	$logo = "https://image.noelshack.com/fichiers/2018/30/4/1532640998-owltheme-logo.png"; //CHANGER LE LOGO ICI (UNIQUEMENT LIEN SI VOUS NE VOUS NE MAITRISER PAS LE HTML)
+	$logo = "https://images.sky-dream.fr/upload-img-gfx/SKYDREAM%20TRASNPARENT.png"; //CHANGER LE LOGO ICI (UNIQUEMENT LIEN SI VOUS NE VOUS NE MAITRISER PAS LE HTML)
 
-	$image_entete_page = "http://image.noelshack.com/fichiers/2018/30/5/1532727099-12108.jpg"; //1600x100px
+	$image_entete_page = "https://images.sky-dream.fr/upload-img-screens/2020-05-02_11.37.33.png"; //1600x100px
 
 
 	//------------------------------------------------------------------------------ Slider --------------------------------------------------------------------------------//
@@ -23,19 +23,19 @@
 	$slider_texte = "Un thème CraftMyWebsite complèt et professionnel pour vos sites Minecraft.";
 	$slider_texte_boutton = "Télécharger maintenant";
 	$slider_lien_boutton = "http://craftmywebsite.fr";
-	$slider_img = "http://image.noelshack.com/fichiers/2018/30/5/1532699944-14305.jpg"; // 1920x1080px
+	$slider_img = "https://images.sky-dream.fr/upload-img-gfx/9cf5b64d6cd2963ef96eabb4b2c1cbe6.jpg"; // 1920x1080px
 
 
 
 
-	$image_pres_1 = "http://image.noelshack.com/fichiers/2018/30/5/1532701112-8312.jpg"; //650x450px
-	$image_pres_2 = "http://image.noelshack.com/fichiers/2018/30/5/1532701109-8247.jpg"; //650x450px
+	$image_pres_1 = "https://images.sky-dream.fr/upload-img-gfx/221aa70f323de61d6cccf7dcbf68c49b.png"; //650x450px
+	$image_pres_2 = "https://images.sky-dream.fr/upload-img-gfx/island1_render.png"; //650x450px
 
 
 	//------------------------------------------------------------------------------ ENTETE --------------------------------------------------------------------------------//
 
 
-	$image_entete_page = "http://image.noelshack.com/fichiers/2018/30/5/1532727099-12108.jpg";
+	$image_entete_page = "https://images.sky-dream.fr/upload-img-gfx/9cf5b64d6cd2963ef96eabb4b2c1cbe6.jpg";
 
 
 	//------------------------------------------------------------------------------ Texte acceuil --------------------------------------------------------------------------------//
@@ -58,7 +58,7 @@
 	//------------------------------------------------------------------------------ FOOTER --------------------------------------------------------------------------------//
 
 
-	$logo_footer = "http://image.noelshack.com/fichiers/2018/30/5/1532695722-owltheme-logo-blanc.png"; //190x50px
+	$logo_footer = "https://images.sky-dream.fr/upload-img-gfx/SKYDREAM%20TRASNPARENT.png"; //190x50px
 	$description_footer = "OwlTheme est un thème épuré offrant la possibilité de réaliser votre site internet réservé à votre serveur Minecraft avec un aspect professionnel, tout en possédant la simplicité de CraftMyWebsite.";
 	$logo_copyright = "http://image.noelshack.com/fichiers/2018/30/5/1532695767-icon-footer.png"; // 40x25px
 

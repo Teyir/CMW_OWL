@@ -1,22 +1,56 @@
 <?php
-require('theme/'. $_Serveur_['General']['theme'] . '/preload.php'); 
-require('include/version.php');
-require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
+require('theme/' . $_Serveur_['General']['theme'] . '/preload.php');
+$configTheme = new Lire('theme/'.$_Serveur_['General']['theme'].'/config/config.yml');
+$_Theme_ = $configTheme->GetTableau();
+
+?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<meta charset="utf-8" />
-	<meta name="autor" content="CraftMyWebsite , TheTueurCiTy, <?php echo $_Serveur_['General']['name']; ?>" />
-	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="<?= $_Serveur_["color"]["theme"]["main"]; ?>">
+    <meta name="msapplication-navbutton-color" content="<?= $_Serveur_["color"]["theme"]["main"]; ?>">
+    <meta name="apple-mobile-web-app-statut-bar-style" content="<?= $_Serveur_["color"]["theme"]["main"]; ?>">
+    <meta name="apple-mobile-web-app-capable" content="<?= $_Serveur_["color"]["theme"]["main"]; ?>">
+
+
+    <!-- SEO -->
+    <meta property="og:title" content="<?= $_Serveur_['General']['name'] ?>">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://<?= $_SERVER["SERVER_NAME"] ?>">
+    <meta property="og:image" content="https://<?= $_SERVER["SERVER_NAME"] ?>/favicon.ico">
+    <meta property="og:image:alt" content="<?= $_Serveur_['General']['description'] ?>">
+    <meta property="og:description" content="<?= $_Serveur_['General']['description'] ?>">
+    <meta property="og:site_name" content="<?= $_Serveur_['General']['name'] ?>" />
+
+    <meta name="twitter:title" content="<?= $_Serveur_['General']['name'] ?>">
+    <meta name="twitter:description" content="<?= $_Serveur_['General']['description'] ?>">
+    <meta name="twitter:image" content="https://<?= $_SERVER["SERVER_NAME"] ?>/favicon.ico">
+
+    <meta name="author" content="CraftMyWebsite, Teyir, <?= $_Serveur_['General']['name']; ?>" />
+    <meta name="publisher" content="<?= $_SERVER["SERVER_NAME"] ?> [contact@<?= $_SERVER["SERVER_NAME"] ?>]"/>
+    <meta name="description" content="<?= $_Serveur_['General']['description'] ?>">
+
+    <meta name="copyright" content="CraftMyWebsite, Teyir, <?= $_Serveur_['General']['name']; ?>"/>
+
+    <meta name="robots" content="follow, index, all">
+
+
+    <!-- CSS -->
+	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
-	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/ionicons.min.css" rel="stylesheet" type="text/css">
-	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/animate.css" rel="stylesheet" type="text/css">
-	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/hover.min.css" rel="stylesheet" type="text/css">
-	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/custom.css" rel="stylesheet" type="text/css">
+	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/ionicons.min.css" rel="stylesheet" type="text/css">
+	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/animate.css" rel="stylesheet" type="text/css">
+	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/hover.min.css" rel="stylesheet" type="text/css">
+	<link href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/custom.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/toastr.css">
-	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/snarl.min.css">
-	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/forum.css">
+	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/toastr.css">
+	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/snarl.min.css">
+	<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/forum.css">
 
 
 
@@ -36,20 +70,49 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
     <link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/colors/blue.css" />
 
 
-<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/css/font-awesome-animation.min.css">
+<link rel="stylesheet" href="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/css/font-awesome-animation.min.css">
 
 
 	<?php
 	if(file_exists('favicon.ico'))
 			echo '<link rel="icon" type="image/x-icon" href="favicon.ico"></link>';
 	?>
-	<title><?php echo $_Serveur_['General']['name'] ?></title>
+
+    <title>
+        <?= $_Serveur_['General']['name'] . " | " . (isset($_GET["page"]) ? $_GET["page"] : $_Serveur_['General']['description']) ?>
+    </title>
 
 
 	<?php include('config.php'); ?>
+
+    <!-- SCRIPTS -->
+    <script src="theme/<?= $_Serveur_['General']['theme']; ?>/assets/js/ckeditor.js"></script>
+    <?php if(isset($_GET['page']) && $_GET['page'] == "voter") {
+        echo '<script src="theme/'.$_Serveur_['General']['theme'].'/assets/js/voteControleur.js"></script>';
+    } ?>
 </head>
 
 <body>
+<script type="text/javascript">var _Jetons_ = "<?=$_Serveur_['General']['moneyName'];?>";</script>
+<?php
+//Verif Version
+include("./include/version.php");
+include("./include/version_distant.php");
+
+if ($versioncms != $versioncmsrelease && Permission::getInstance()->verifPerm('PermsPanel', 'update', 'showPage')) : ?>
+
+    <div class=" mb-0 rounded-0 text-center alert alert-main bg-lightest alert-dismissible text-shadow-none fade show sticky-top" role="alert">
+        <h5 class="m-0">
+            Une mise à jour est disponible <strong>(<a href="https://craftmywebsite.fr/telecharger" target="_blank" class="alert-link"><?= $versioncmsrelease ?></a>)</strong> !
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: var(--base-color);">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </h5>
+    </div>
+
+<?php endif; ?>
+
+
 <!-- PRELOADER
 	<div class="loader-wrapper">
 		<div class="loaders">
@@ -61,48 +124,38 @@ require('theme/'. $_Serveur_['General']['theme'] . '/config/configTheme.php');?>
 		</div>
 	</div>
 	-->
-	<?php if(isset($_Joueur_)) { ?>
-		<?php setcookie('pseudo', $_Joueur_['pseudo'], time() + 86400, null, null, false, true); ?>	
-		<?php } else { ?>
-			<?php } ?>
-			<?php 
-			include('theme/' .$_Serveur_['General']['theme']. '/entete.php');
-			?>
-			<?php tempMess(); ?>
-		<?php
-		$check_installation_dossier = "installation";
-		if (is_dir($check_installation_dossier)) { ?>
-		<header class="heading-pagination">
-			<div class="container-fluid">
-				<h1 class="text-uppercase wow fadeInRight" style="color:white;">Vérification d'installation</h1>
-			</div>
-		</header>
-		<section id="page" class="layout">
-			<div class="container">
-			</br>
-			<div class="alert alert-danger">
-				<center><strong>Erreur :</strong> Vous devez absolument effacer le dossier "installation" à la racine de votre site pour commencer à utiliser votre site.</br>
-					Rafraîchissez la page ou appuyez sur le bouton ci-dessous pour revérifier.
-				</center>
-			</div>
-			<center><a href="index.php" class="btn btn-warning btn-lg btn-block">Refaire une vérification</a></center>
-		</br>
-	</br>
-</div></section>
-<?php } else { include('controleur/page.php'); } 
-?>
+
+
+
+
+<?php if (Permission::getInstance()->verifPerm("connect")) /* --> */ setcookie('pseudo', $_Joueur_['pseudo'], time() + 86400, null, null, false, true);
+
+include('theme/' . $_Serveur_['General']['theme'] . '/entete.php'); //Header included
+tempMess(); ?>
+
 <?php
-include('theme/' .$_Serveur_['General']['theme']. '/pied.php'); ?>
-<!-- Les formulaires pop-up -->
-<?php include('theme/' .$_Serveur_['General']['theme']. '/formulaires.php'); 
+//Verif Installation Folder is deleted
+if (is_dir("installation")) {
+    include('theme/' . $_Serveur_['General']['theme'] . '/pages/fichier_installation.php');
+} else {
+    include('controleur/page.php'); //Page included
+}
+include('theme/' . $_Serveur_['General']['theme'] . '/footer.php');  //Footer included
+include('theme/' . $_Serveur_['General']['theme'] . '/formulaires.php'); //Forms included
 ?>
 
-<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/popper.min.js"></script>
-<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/wow.min.js"></script>
-<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/custom.js"></script>
-<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/toastr.min.js"></script>
-<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/js/snarl.min.js"></script>
+
+<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/js/popper.min.js"></script>
+<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/js/wow.min.js"></script>
+<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/js/custom.js"></script>
+<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/js/toastr.min.js"></script>
+<script src="theme/<?php echo $_Serveur_['General']['theme']; ?>/assets/js/snarl.min.js"></script>
+<?php include "theme/" . $_Serveur_['General']['theme'] . "/assets/php/ckeditorManager.php"; ?>
+<?php include "theme/" . $_Serveur_['General']['theme'] . "/assets/php/custom.php"; ?>
+<?php if ($_Serveur_['Payement']['dedipass']) : //API DEDIPASS
+?>
 <script src="//api.mcgpass.com/v1/pay.js"></script>
+<?php endif; ?>
 
 
     <!-- Jquery Plugins -->

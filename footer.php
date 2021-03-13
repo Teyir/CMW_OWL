@@ -37,8 +37,8 @@
             <div class="footer-bottom">
                 <div class="container">
 
-                    <!-- ATTENTION VOUS AVEZ LE DROIT DE SUPPRIMER LE NOM DE BLX DU FOOTER (MAIS CELUI PEUT ETRE CONCERVER CELA FERA PLAISIR AU DEV).MAIS EN AUCUN CAS SUPPRIMER LE LIEN VERS CRAFTMYWEBSITE PLUS D'INFOS ICI : https://craftmywebsite.fr/forum/index.php?threads/important-r%C3%88gle-de-section-comment-ca-marche-05-09-2016.2538/ -->
-                    <span class="copyright"><img class="pdd-right-10" src="<?php echo $logo_copyright; ?>" alt="logo"> Copyright © <?php echo date('Y');?> <?php echo $_Serveur_['General']['name']; ?>. Site réalisé avec <a href="http://craftmywebsite.fr" target="_blank">CraftMyWebsite.fr.</a> Thème réalisé avec <i class="ei ei-heart-full" aria-hidden="true"></i> par BLX.</span>    
+
+                    <span class="copyright"><img class="pdd-right-10" src="<?php echo $logo_copyright; ?>" alt="logo"> Copyright © <?php echo date('Y');?> <?php echo $_Serveur_['General']['name']; ?>. Site réalisé avec <a href="http://craftmywebsite.fr" target="_blank">CraftMyWebsite.fr.</a> Thème réalisé avec <i class="ei ei-heart-full" aria-hidden="true"></i> par BLX et repris par <a href="https://teyir.fr" target="_blank">Teyir</a></span>
                     <ul class="social-btn pull-right mrg-top-5">
                         <?php if(!empty($facebook)) { ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-facebook"></i></a></li><?php } else {} ?>
                         <?php if(!empty($twitter)) { ?><li><a href="<?php echo $twitter; ?>" target="_blank" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-twitter"></i></a></li><?php } else {} ?>
